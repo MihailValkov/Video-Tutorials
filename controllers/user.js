@@ -38,12 +38,16 @@ module.exports = {
                        message: 'No such username',password
                    }); return;
                }
-               if(password !== user.password){
-                res.render('user/login.hbs', {
-                    message: 'Username or Password is wrong!',username
-                }); return;
-            }
-            res.redirect('/home/');
+               user.verifyPasswords(password).then(match=> {
+                   if(!match) {
+                       res.render('user/login.hbs',{
+                           message : "Username or password don't match!",
+                           username,password
+                       }); return;
+                   }
+                   res.redirect('/home/');
+               });
+
            }).catch(next)
         }
     }
