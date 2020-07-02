@@ -19,7 +19,7 @@
                     <a class="nav-link" href="/home/">Home </a>
                 </li>
                 {{#if isLogged}}
-                 <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="/user/profile">Welcome, {{username}}</a>
                 </li>
 
@@ -39,8 +39,9 @@
             </ul>
         </nav>
         {{#if message}}
-        <section class="notifications">
-            <p class="notification-message">{{message}}</p>
+        <section
+            style="background-color:#F08080; padding: 1%; border-radius: 6px; width: 50%; margin: 0 auto; margin-top: 1%;">
+            <p style="text-align: center; font-style: italic; font-size: 18px;"> {{message}}</p>
         </section>
         {{/if}}
         <main>
