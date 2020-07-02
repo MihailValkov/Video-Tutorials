@@ -1,4 +1,6 @@
 const User = require('../models/userModel');
+const jwtToken = require('../utils/jwt');
+const cookieParser = require('cookie-parser');
 module.exports = {
     get :{
         register(req,res,next){
@@ -23,14 +25,13 @@ module.exports = {
                         password,repeatPassword
                     }); return ;
                 }
-
                 User.create({username,password}).then(()=> {
-                    res.redirect('/home/');
+                    res.redirect('user/login');
                 })
             }).catch(next)
        
         },
-        login(req,res,next){
+         login(req,res,next){
            const {username , password} = req.body;
            User.findOne({username}).then((user)=> {
                if(!user) {
@@ -45,7 +46,9 @@ module.exports = {
                            username,password
                        }); return;
                    }
-                   res.redirect('/home/');
+                   const token =jwtToken.create({id : user._id});
+                   req.user= user;
+                   res.cookie(process.env.COOKIE_LOGIN,token).redirect('/home/');
                });
 
            }).catch(next)
