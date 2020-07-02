@@ -8,7 +8,10 @@ module.exports = {
         },
         login(req,res,next){
             res.render('user/login.hbs')
-
+        },
+        logout (req,res,next){
+            req.user=null;
+            res.clearCookie(process.env.COOKIE_LOGIN).redirect('/home/')
         }
     },
     post :{
