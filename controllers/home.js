@@ -2,7 +2,7 @@
 module.exports = {
     get : {
         home(req,res,next){
-            res.render('home/home.hbs')
+            res.render('home/home.hbs',req.locals)
         }
     },
     post : {}

@@ -46,8 +46,7 @@ module.exports = {
                            username,password
                        }); return;
                    }
-                   const token =jwtToken.create({id : user._id});
-                   req.user= user;
+                   const token =jwtToken.create({id : user._id,username : user.username});
                    res.cookie(process.env.COOKIE_LOGIN,token).redirect('/home/');
                });
 
