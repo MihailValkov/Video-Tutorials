@@ -1,8 +1,10 @@
-
+const Course = require('../models/courseModel');
 module.exports = {
     get : {
         home(req,res,next){
-            res.render('home/home.hbs',{title:"Home Page", ...req.locals})
+            Course.find().lean().then(courses => {
+                res.render('home/home.hbs',{title:"Home Page", ...req.locals , courses})
+            })
         }
     },
     post : {}

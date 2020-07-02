@@ -1,6 +1,5 @@
 const User = require('../models/userModel');
 const jwtToken = require('../utils/jwt');
-const cookieParser = require('cookie-parser');
 module.exports = {
     get :{
         register(req,res,next){
