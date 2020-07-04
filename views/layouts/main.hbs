@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
-    <link href="css/site.css" type="text/css" rel="stylesheet">
+    <link href="/css/site.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -39,9 +39,8 @@
             </ul>
         </nav>
         {{#if message}}
-        <section
-            style="background-color:#F08080; padding: 1%; border-radius: 6px; width: 50%; margin: 0 auto; margin-top: 1%;">
-            <p style="text-align: center; font-style: italic; font-size: 18px;"> {{message}}</p>
+        <section class="notifications">
+            <p class="notification-message">{{message}}</p>
         </section>
         {{/if}}
         <main>

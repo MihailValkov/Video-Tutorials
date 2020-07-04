@@ -1,0 +1,13 @@
+<div class="profile col-md-6 text-center col-lg" style="margin-top:95px;margin-bottom:50px">
+    {{#if male}}
+    <img class="profile-img" style="border-radius:50%; height:250px" src="https://cdn.onlinewebfonts.com/svg/img_542942.png" />
+    {{else}}
+    <img class="profile-img" style="border-radius:50%; height:250px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRXSTblEVkkdJh15jlAbC3FpvuzCKb1o-pQQA&usqp=CAU" />
+    {{/if}}
+    <div class="profile-info">
+        <br>
+        <p>Username: <small>{{username}}</small></p>
+        <p>Enrolled Courses: {{count}}</p>
+        <p>{{courses}}</p>
+    </div>
+</div>

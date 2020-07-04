@@ -7,4 +7,8 @@ module.exports = (app) => {
     app.use('/user',routes.user);
 
     app.use('/course',routes.course);
+
+    app.use('*', (req,res,next)=> {
+        res.render('errors/404.hbs')
+    })
 }

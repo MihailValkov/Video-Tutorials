@@ -4,16 +4,24 @@ const courseSchema = new mongoose.Schema({
     title : {
         type :mongoose.Schema.Types.String,
         required:true,
-        unique:true
+        unique:true,
+        minlength: [4, "The title should be at least 4 characters!"]
     },
     description : {
         type :mongoose.Schema.Types.String,
         required:true,
-        maxlength : [50, "description should be max length 50 characters !"]
+        maxlength : [50, "The description should be max length 50 characters!"],
+        minlength: [20, "The description should be at least 20 characters long!"]
     },
     imageUrl : {
         type :mongoose.Schema.Types.String,
         required:true,
+        validate : {
+            validator: (x) => {
+                return /^http:\/\/.+|https:\/\/.+/.test(x);
+            },
+            message : () => 'The imageUrl should be starts with http or https!'
+        }
     },
     isPublic : {
         type :mongoose.Schema.Types.Boolean,

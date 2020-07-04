@@ -12,6 +12,32 @@
         <label for="repeat-password">Repeat Password</label>
         <input type="password" class="form-control" placeholder="Repeat-Password" name="repeat-password" value="{{repeatPassword}}">
     </div>
+    
+    <div style="display: flex; justify-content:space-around">
+        {{#if male}}
+        <div class="form-group">
+        <label for="male">Male</label>
+        <input type="checkbox" checked width="50%" class="form-control"  name="male">
+        </div>
+         {{else}}
+        <div class="form-group">
+        <label for="male">Male</label>
+        <input type="checkbox" width="50%" class="form-control"  name="male">
+        </div>
+        {{/if}}
+        {{#if female}}
+        <div class="form-group">
+        <label for="female">Female</label>
+        <input type="checkbox" checked width="50%" class="form-control"  name="female" >
+        </div>
+        {{else}}
+        <div class="form-group">
+        <label for="female">Female</label>
+        <input type="checkbox" width="50%" class="form-control"  name="female" >
+         </div>
+        {{/if}}
 
+    </div>
+    <br>
     <button type="submit" class="btn btn-primary">Register</button>
 </form>
